@@ -28,32 +28,26 @@ console.log(Number.parseInt(stringInt) + 2) // приводим строку к 
 console.log(parseInt(stringInt) + 2) // можно без Number
 console.log(Number(stringInt) + 2)
 console.log(+stringInt + 2)
-
 console.log(parseFloat(stringFloat) + 2) // вывод float
 console.log(+stringFloat + 2) 
-
 console.log(0.4 + 0.2) // очевидно что ответ 0,6 но 0.6000000000000001
 console.log((4 / 10) + (2 / 10)) // 0.6000000000000001
 console.log((0.4 + 0.2).toFixed(1)) // 0.6 но это строка
 console.log(+(0.4 + 0.2).toFixed(1)) // 0.6 это int
 console.log(parseFloat((0.4 + 0.2).toFixed(1))) // 0.6 это int
 
-
 // 2 BigInt (*n - это тип BigInt)
 console.log(900719925474099199999n - 90071992547409919999n)
 console.log(-900719925474099199999n) // можно "-"
 console.log(900719925474099199999.2323n) error, нельзя float
-
 console.log(10n - 4) // error
 console.log(parseInt(10n) - 4) // OK
 console.log(10n - BigInt(4)) // OK
 console.log(5n / 2n) // будет 2 т.к. это int только целые
 
-
 // 3 Math
 console.log(Math.E) // экспонента
 console.log(Math.PI) // число Пи
-
 console.log(Math.sqrt(25))
 console.log(Math.pow(5, 3))
 console.log(Math.abs(-42)) // убираем "-"
@@ -70,5 +64,4 @@ console.log(Math.random()) // рандомное число
 function getRandomBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
-
 console.log(getRandomBetween(10, 42))
