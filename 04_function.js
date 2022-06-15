@@ -43,3 +43,29 @@ const pow2 = num => {
     return num ** 2 // возводим num в степень 2
 }
 console.log(pow2(5))
+
+// 4 Параметры по умолчанию
+const sum = (a = 40, b = a * 2) => a + b
+console.log(sum(41, 4))
+console.log(sum())
+
+function sumAll(...all) { // ... оператор rest в all собирает все числа
+let result = 0
+    for (let num of all) {
+        result += num
+    }
+    return result
+}
+const res = sumAll(1, 2, 3, 4, 5)
+// console.log(res)
+
+// 5 Замыкания (польза от создания приватных переменных)
+function createMember(name) {
+    return function(lastName) {
+        console.log(name + lastName)
+    }
+}
+
+const logWithLastName = createMember('Egor')
+console.log(logWithLastName('Kozlov'))
+console.log(logWithLastName('Kuznecov'))
