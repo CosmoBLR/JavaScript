@@ -48,3 +48,46 @@ for (let key in person) {
     }
 }
 
+Object/keys не бежит по прототипу, поэтому проверка не нужна
+Object.keys(person).forEach((key) => {
+    console.log('key:', key)
+        console.log('value:', person[key])
+})
+
+// Контекст
+person.info()
+
+const logger = {
+    keys() {
+        console.log('Object Keys: ', Object.keys(this))
+    },
+
+    keysAndValues() {
+        // 'key': value
+        Object.keys(this).forEach (key => {
+            console.log(`"${key}": ${this[key]}`)
+        })
+    },
+    withParams(top = false, between = false, bottom= false) {
+        if (top) {
+            console.log('------- Start -------')
+        }
+        Object.keys(this).forEach ((key, index, array) => {
+            console.log(`"${key}": ${this[key]}`)
+            if (between && index !== array.length - 1) {
+                console.log('--------------')
+            }
+        })
+        if (bottom) {
+            console.log('------- End -------')
+        }
+    }
+}
+
+const bound = logger.keys.bind(person)
+bound()
+logger.keys.call(person)
+logger.keysAndValues.call(person)
+logger.withParams.call(person, true, true, true)
+logger.withParams.apply(person, [true, true, true])
+
