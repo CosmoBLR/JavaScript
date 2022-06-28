@@ -36,3 +36,49 @@ link.addEventListener('click', (event) => {
     window.location = url
 })
 
+setTimeout(() => {
+    addStylesTo(link, 'Практикуйся', 'blue')
+}, 3000)
+
+setTimeout(() => {
+    addStylesTo(heading2, 'И всё получится!', 'yellow', fontSize = '2rem')
+}, 4500)
+
+function addStylesTo (node, text, color = 'red', fontSize) {
+    node.textContent = text
+    node.style.color = color
+    node.style.textAlign = 'center'
+    node.style.backgroundColor = 'black'
+    node.style.padding = '2rem'
+    node.style.display = 'block'
+    node.style.width = '100%'
+
+    //если значения не в falsy: '', undefined, null, 0, false
+    if (fontSize) {
+node.style.fontSize = fontSize
+    }
+}
+
+// добавляем событие "on" и дальше какое именно событие
+// https://developer.mozilla.org/ru/docs/Web/Events
+
+heading.onclick = () => {
+    if (heading.style.color === 'red') {
+        heading.style.color = '#000'
+        heading.style.backgroundColor = '#fff'
+    } else {
+        heading.style.color = 'red'
+        heading.style.backgroundColor = '#000'
+    }
+}
+
+heading2.addEventListener('dblclick', () => {
+    if (heading2.style.color === 'yellow') {
+        heading2.style.color = '#000'
+        heading2.style.backgroundColor = '#fff'
+    } else {
+        heading2.style.color = 'yellow'
+        heading2.style.backgroundColor = '#000'
+    }
+})
+
